@@ -1,0 +1,52 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+  <div class="quick-actions_homepage">
+    <ul class="quick-actions">
+      <li> <a href="{% url 'smisforms' %}"> <i class="icon-dashboard"></i> Enter Results </a> </li>
+      <li> <a href="{% url 'smisresults' %}"> <i class="icon-shopping-bag"></i>View Results</a> </li>
+      <li> <a href="{% url 'smistranscript' %}"> <i class="icon-people"></i>Download Transcript </a> </li>
+    </ul>
+  </div>
+
+  <div class="row-fluid">
+    <div class="widget-box">
+      <div class="widget-title"><span class="icon"><i class="icon-tasks"></i></span>
+        <h5>Site Analytics</h5>
+        <div class="buttons"><a href="{% url 'smishome' %}" class="btn btn-mini btn-success"><i
+              class="icon-refresh"></i> Update
+            stats</a></div>
+      </div>
+      <div class="widget-content">
+        <div class="row-fluid">
+          <div class="span8">
+            <div class="chart"></div>
+          </div>
+          <div class="span4">
+            <ul class="stat-boxes2">
+              <li>
+                <div class="left peity_line_neutral"><span><span style="display: none;">10,15,8,14,13,10,10,15</span>
+                    <canvas width="50" height="24"></canvas>
+                  </span>{{ count }}</div>
+                <div class="left">Number of Students </div>
+              </li>
+              {% if perms.auth.delete_user %}
+              <li>
+                <div class="left peity_bar_bad"><span><span style="display: none;">3,5,6,16,8,10,6</span>
+                    <canvas width="50" height="24"></canvas>
+                    {% for message in messages %}
+                    <p>{{ message }}</p>
+                    {% endfor %}</div>
+                <div class="left">Total Average</div>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>
+{% endblock %}

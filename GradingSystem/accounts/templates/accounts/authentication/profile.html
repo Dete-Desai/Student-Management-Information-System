@@ -1,0 +1,54 @@
+{% extends 'accounts/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div id="content">
+    <div id="content-header">
+        <h1>USER PROFILE</h1>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon">
+                            <i class="icon-pencil"></i>
+                        </span>
+                        <h5>System Users &amp; Authentication</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <form action="{% url 'smisregister' %}" id="form-wizard" class="form-horizontal" method="post">
+                            {% csrf_token %}
+                            <div id="form-wizard-1" class="step">
+                                <div class="control-group">
+                                    <label class="control-label">USERNAME:</label>
+                                    <div class="controls">
+                                        {{ user.username }}
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">EMAIL:</label>
+                                    <div class="controls">
+                                        {{ user.email }}
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">SYSTEM GROUP:</label>
+                                    <div class="controls">
+                                        {{ user.groups.all.0}}
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">PASSWORD:</label>
+                                    <div class="controls">
+                                        {{ user.password1}}
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

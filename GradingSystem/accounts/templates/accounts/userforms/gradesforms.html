@@ -1,0 +1,57 @@
+{% extends 'accounts/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div id="content">
+    <div id="content-header">
+        <h1>GRADES FORM</h1>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon">
+                            <i class="icon-pencil"></i>
+                        </span>
+                        <h5>Form wizard &amp; validation</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <form action="{% url 'smisforms' %}" id="form-wizard" class="form-horizontal" method="post">
+                            {% csrf_token %}
+                            <div id="form-wizard-1" class="step">
+                                <div class="control-group">
+                                    <label class="control-label">STUDENT NAME:</label>
+                                    <div class="controls">
+                                        {{form.student_name|as_crispy_field}}
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">REGISTRATION NUMBER:</label>
+                                    <div class="controls">
+                                        {{form.registration_no|as_crispy_field}}
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">COURSE:</label>
+                                    <div class="controls">
+                                        {{form.course|as_crispy_field}}
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">MARKS:</label>
+                                    <div class="controls">
+                                        {{form.marks|as_crispy_field}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <input id="next" class="btn btn-primary" type="submit" value="Submit" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

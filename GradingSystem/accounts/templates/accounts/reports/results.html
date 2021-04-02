@@ -1,0 +1,68 @@
+{% extends 'accounts/base.html' %}
+{% load debug_tags %}
+{% block content %}
+<div id="content">
+    <div id="content-header">
+        <h1>RESULTS REPORT</h1>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-th"></i></span>
+                        <h5>Results Table</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered data-table">
+                            <thead>
+                                <tr>
+                                    <th>STUDENT NAME</th>
+                                    <th>REGISTRATION NUMBER</th>
+                                    <th>COURSE</th>
+                                    <th>MARKS</th>
+                                    <th>GRADE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for smisforms in smisresults %}
+                                <tr class="gradeX">
+                                    <td>{{ smisforms.student_name }}</td>
+                                    <td>{{ smisforms.registration_no }}</td>
+                                    <td>{{ smisforms.course }}</td>
+                                    <td>
+                                        {% if smisforms.marks > 100 %}
+                                        <b>A+</b>
+                                        {% endif %}
+                                        {% if smisforms.marks == '100' %}
+                                        <b>A</b>
+                                        {% endif %}
+                                        {% if smisforms.marks > 69 %}
+                                        <b>A</b>
+                                        {% endif %}
+                                        {% if smisforms.marks > 59 %}
+                                        <b>B</b>
+                                        {% endif %}
+                                        {% if smisforms.marks > 49 %}
+                                        <b>C</b>
+                                        {% endif %}
+                                        {% if smisforms.marks > 39 %}
+                                        <b>D</b>
+                                        {% endif %}
+                                        {% if smisforms.marks < 30 %}
+                                        <b>E</b>
+                                        {% endif %}
+                                        {% if smisforms.marks < 0 %}
+                                        <b>FAIL</b>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

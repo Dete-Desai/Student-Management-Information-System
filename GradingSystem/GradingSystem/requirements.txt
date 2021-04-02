@@ -1,0 +1,27 @@
+The Students Management Information System(SMIS) is Webbapplication developed by django framework to,
+ allow students to key in their grades and get reports back and download transcripts.
+
+ The following are requirements for the system to work:
+ 1. install django 2.2.1 framework for the backend.
+ 2. install Postgresql.
+ 3. HTML 5 scripts.
+ 4. pip packages.
+ 5. laptop with a 4GB RAM and above with speeds above 2.6GHZ.
+
+ Run the following commands in your terminal after installing the requirements in order to run the system:
+
+ 'python manage.py makemigrations'
+ 'python manage.py migrate'
+ 'python manage.py runserver'
+
+ for further information use the links below
+ django framework = https://www.djangoproject.com/
+ postgres database = https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e
+
+ The following are users of the system.
+ 1. username = smisadmin, password = admin@2010
+ 2. username = lamechdesai, password = ldete@2010
+ 3. username = lamechdete, password = ldesai@2010
+ 4. username = lamechodhiambo, password = lodhis@2010
+
+ the admin is the super user of the system with most rights while the rest (lamech and his namesakes are all students)
